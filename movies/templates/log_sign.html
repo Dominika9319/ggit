@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+<section>
+    <div class="container mt-3">
+        <div class="row">
+            <form class="col-12 col-md-6 bg-light p-3 m-auto"
+                  method="post" action="{% url 'user_signup' %}">
+                {% csrf_token %}
+                <h4 class="text-center my-4">ZALOGUJ SIĘ I OCENIAJ FILMY</h4>
+
+                <button type="button" class="btn btn-secondary btn-lg btn-block">
+                    <a href="{% url 'login' %}">Zaloguj się kontem Goodmovies</a> 
+                </button>
+            
+                <p style="text-align: center">lub</p>
+
+                <button type="button" class="btn btn-secondary btn-lg btn-block">
+                    <a href="{% url 'user_signup' %}">Załóż nowe konto</a> 
+                </button>
+
+            </form>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

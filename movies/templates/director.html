@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            {% for director in directors %}
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h5 class="card-title">
+                    {{ director }}
+                    </h5>
+                    <p class="card-text">{{ director.content }}</p>
+                    <a href="#" class="btn btn-primary">Zobacz więcej</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
