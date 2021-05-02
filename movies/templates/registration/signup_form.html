@@ -3,30 +3,33 @@
 {% block body_class %}login-form{% endblock %}
 
 {% block content %}
-<section>
-    <div class="container mt-3">
+<section class="container-fluid">
+    <div>
         <div class="row">
-            <form class="col-12 col-md-6 bg-light p-3 m-auto"
+            <form class="col-12 col-md-6 p-3 m-auto"
                   method="post" action="{% url 'user_signup' %}">
                 {% csrf_token %}
-                <h4 class="text-center my-4">ZAREJESTRUJ SIĘ W SERWISIE</h4>
+                <h4 class="text-center text-white my-4">SIGN UP</h4>
+                <h6 class="text-center text-white my-4">Create account</h6>
 
                 <div class="form-group">
-                    <label for="user-name" class="sr-only">*Nazwa użytkownika</label>
-                    <input name="username" type="text" class="form-control bg-transparent border-left-0 border-top-0 border-right-0 border-primary rounded-0" id="user-name" placeholder="*Nazwa użytkownika">
+                    <h6 class="text-white">Your user name</h6>
+                    <input name="username" type="text" class="form-control bg-white rounded-50" id="user-name" >
                 </div>
                 <div class="form-group">
-                    <label for="user-password" class="sr-only">*Hasło</label>
-                    <input name="password1" type="password" class="form-control bg-transparent border-left-0 border-top-0 border-right-0 border-primary rounded-0" id="user-password" placeholder="*Hasło">
+                    <h6 class="text-white">Password</h6>
+                    <input name="password1" type="password" class="form-control bg-white rounded-50" id="user-password" placeholder="Passwords must be at least 8 characters.">
                 </div>
                 <div class="form-group">
-                    <label for="user-password" class="sr-only">*Hasło</label>
-                    <input name="password2" type="password" class="form-control bg-transparent border-left-0 border-top-0 border-right-0 border-primary rounded-0" id="user-password" placeholder="*Powtórz hasło">
+                    <h6 class="text-white">Re-enter password</h6>
+                    <input name="password2" type="password" class="form-control bg-white rounded-50" id="user-password" >
                 </div>
 
-                <button type="submit" class="btn btn-primary d-block ml-auto my-3">
-                Zarejestruj się
-                </button>
+                
+                <div class="container d-flex flex-row-reverse mb-5">
+                    <button type="submit " class="btn d-block bg-danger b-radius"><a class="text-white" href="{% url 'index' %}">Cancel</a></button>
+                    <button type="submit" class="mr-3 btn btn-new b-radius text-white">Sign in</button>
+                </div>
             </form>
         </div>
     </div>

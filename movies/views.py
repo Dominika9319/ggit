@@ -30,20 +30,31 @@ def movies_list(request):
 def profile_view(request):
     return render(request, template_name="my_profile.html")
 
+
+
 from django.contrib.auth.forms import UserCreationForm
 
 def user_signup(request):
-    if request.method == 'POST':
-    # przetwarzanie danych z formularza
+    if request.method == "POST":
+        # przetwarzanie danych z formualrza
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
             return render(request, template_name="registration/signup_complete.html")
     else:
-        # czysty formularz do wypełnienia
+        # czysty formularz do wypelnienia
         form = UserCreationForm()
 
-    return render(request, template_name="registration/signup_form.html", context={'form': form})
+    return render(
+        request,
+        template_name="registration/signup_form.html",
+        context={'form':form}
+    )
+
+def password_reset(request):
+    return render(request, template_name="password_reset_form.html")
+
+
 
 def movie_detail(request, movie_id):
     my_context = {"movie": Movie.objects.get(id=movie_id)}
@@ -64,5 +75,3 @@ def director(request):
 
 
 
-def log(request):
-    return render(request, template_name="log_sign.html")

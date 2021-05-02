@@ -20,14 +20,18 @@ from movies import views
 
 from django.urls import include
 
+from django.contrib.auth import views as auth_views
+
+
 urlpatterns = [
     path('', views.index, name="index"),
 
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/profile/', views.profile_view, name='user_profile'),
     path('accounts/signup/', views.user_signup, name="user_signup"),
-    path('log/', views.log),
-    
+    path('accounts/signup/', views.user_signup, name="user_signup"),
+    path('accounts/password_reset/', views.password_reset, name="password_reset"),
+   
 
     path('filmy/', views.movies_list),
     path('filmy/<int:movie_id>', views.movie_detail, name="movie_detail"),
@@ -37,6 +41,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/', views.hello_world),
     path('movies/', views.movies),
+
 ]
 
 # http://127.0.0.1:8000/hello/

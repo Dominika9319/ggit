@@ -1,6 +1,23 @@
+/* FONT */
+@font-face{
+    font-family: "Open Sans";
+    src: url("fonts/OpenSans-Light.ttf")
+}
+
+
 /* Links */
-a:hover {
+a {
+    transition: .5s;
+
+}
+
+a:hover{
     text-decoration: none;
+    color: #6975E4 !important;
+}
+
+.nav-link{
+    padding: 0;
 }
 
 /* NAVBAR */
@@ -12,6 +29,24 @@ a:hover {
     width: 25px;
     height: 25px;
 }
+
+.container-fluid{
+    background-color: #1C2124;
+}
+
+.log-menu{
+    float: right !important;
+}
+
+.b-radius{
+    border-radius: 50px;
+}
+
+.b-radius:hover{
+    background-color: #FFFFFF20;
+}
+
+
 
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -53,3 +88,9 @@ body.login-form {
     height: 180px;
     object-fit: cover;
 }
+
+.btn-new{
+    background-color: #6975E4;
+}
+
+

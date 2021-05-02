@@ -1,5 +1,6 @@
 {% load static %}
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,34 +14,39 @@
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
     <!-- Links -->
-    <link rel="stylesheet" href="{% static 'templates/style.css' %}">
+
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 
     <!-- Title -->
-    <title>{% block page_title %}Good movies{% endblock %}</title>
+    <title>Good movies</title>
 </head>
 
-<body class="mb-0 {% block body_class %}{% endblock %}">
+<body class="{% block body_class %}{% endblock %}">
     <!-- Navbar -->
-    <div class="container-fluid pb-3 pt-3">
-        <div class="container d-flex flex-row-reverse">
-            <button type="button " class="btn btn-outline-light b-radius">
-            <a class="nav-link text-white"
-                href="{% url 'login' %}">
-                SIGN IN
-            </a></button>
-            <button type="button" class="mr-3 btn btn-outline-light b-radius">
-                <a class="nav-link text-white"
-                    href="{% url 'user_signup' %}">
-                    SIGN UP
-                </a></button>
+    <div class="container-fluid bg-dark pb-3 ">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark navbar-right">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="navbar-nav log-menu">
+                        <a class="nav-item nav-link active border rounded border-light my-3 mr-3 my-lg-0 pl-3 p-lg-2"
+                            href="{% url 'user_profile' %}">
+                            SIGN UP
+                        </a>
+                        <a class="nav-item nav-link active border rounded border-light my-3 my-lg-0 pl-3 p-lg-2"
+                            href="{% url 'login' %}">SIGN IN</a>
 
+                    </div>
+                </div>
+            </nav>
         </div>
     </div>
 
-    <div class="container-fluid pb-3">
+    <div class="container-fluid bg-dark pb-3">
         <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light pr-0 pl-0 ">
-                <a class="navbar-brand text-white" href="{% url 'index' %}">GOODMOVIES</a>
+            <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+                <a class="navbar-brand" href="{% url 'index' %}">GOODMOVIES</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -49,7 +55,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                     <form class="search-form input-group mr-4">
-                        <input class="form-control" type="search" placeholder="Search"
+                        <input class="form-control" type="search" placeholder="Search movies, TV Shows, directors ..."
                             aria-label="Search">
                         <button class="btn btn-light input-group-append btn-sm">
                             <img class="search-icon" src="{% static 'img/search.png'%}" alt="Search icon">
@@ -57,20 +63,20 @@
                     </form>
                     <ul class="navbar-nav mr-auto ">
                         <li class="nav-item active">
-                            <a class="nav-link text-white" href="#">MOVIES<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="#">MOVIES<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link text-white" href="#">TV SHOWS<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="#">TV SHOWS<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link text-white" href="#">DIRECTORS<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="#">DIRECTORS<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link text-white" href="#">REVIEWS<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="#">REVIEWS<span class="sr-only">(current)</span></a>
                         </li>
 
                         <li class="nav-item active dropdown">
-                            <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 RANKING
                             </a>
@@ -78,7 +84,7 @@
                                 <a class="dropdown-item" href="#">Top 100 Movies</a>
                                 <a class="dropdown-item" href="#">Top 100 TV Shows</a>
                                 <a class="dropdown-item" href="#">Top 10 Directors</a>
-                              
+                                <div class="dropdown-divider"></div>
 
                             </div>
                         </li>
